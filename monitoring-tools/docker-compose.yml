@@ -1,0 +1,76 @@
+version: '3.8'
+
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    networks:
+      - monitoring
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    depends_on:
+      - prometheus
+    networks:
+      - monitoring
+
+  node_exporter:
+    image: prom/node-exporter:latest
+    ports:
+      - "9100:9100"
+    networks:
+      - monitoring
+
+  kafka_exporter:
+    image: danielqsj/kafka-exporter:v1.8.0
+    ports:
+      - "9308:9308"
+        #depends_on:
+        #- kafka
+    command:
+      - "--kafka.server=kafka:9092"
+    networks:
+      - monitoring
+
+  file_exporter:
+    image: mdoubez/filestat_exporter:0.4.0
+    volumes:
+      - /etc/hosts:/mnt/hosts:ro
+    command:
+      - "--config.file=/etc/file_exporter.yml"
+    ports:
+      - "9253:9253"
+    networks:
+      - monitoring
+
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:v0.38.6
+    ports:
+      - "8080:8080"
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    networks:
+      - monitoring
+
+  blackbox_exporter:
+    image: prom/blackbox-exporter:latest
+    ports:
+      - "9115:9115"
+    networks:
+      - monitoring
+
+networks:
+  monitoring:
+    driver: bridge
+

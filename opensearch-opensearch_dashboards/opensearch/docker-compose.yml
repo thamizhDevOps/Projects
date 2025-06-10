@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  opensearch:
+    image: 
+    container_name: opensearch
+    env_file:
+      - ./opensearch.env
+    ports:
+      - "9720:9200"
+      - "9221:9600"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    volumes:
+      - ./opensearch_data:/usr/share/opensearch/data
+      - ./opensearch_logs:/usr/share/opensearch/logs
+    networks:
+      - opensearch
+networks:
+  opensearch:
+    driver: bridge
+
