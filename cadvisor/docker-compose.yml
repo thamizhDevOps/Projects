@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  hsnc-cadvisor:
+    image: ${HSNC_CADVISOR_IMAGE}
+    container_name: ${HSNC_NS}-hsnc-cadvisor
+    labels: 
+      - "service=${HSNC_SERVICE_NAME}"
+      - "environment=${HSNC_NS}"
+      - "service_version=${HSNC_SERVICE_VERSION}"
+      - "process_name=cadvisor"
+      - "process_type=primary"  
+    env_file:
+      - ${HSSTACK_COMMON_ENV_FILE}
+      - ../../common.env
+      - ${HSSTACK_HOST_ENV_FILE}
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - ${HSNC_CADVISOR_DOCKER_DIR}:/var/lib/docker:ro
+      - ${HSNC_LOGS}/cadvisor:/var/log/cadvisor
+      - ${HSNC_DATA}/cadvisor:/data/cadvisor
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - "mkdir -p /var/log/cadvisor && cadvisor > /var/log/cadvisor/cadvisor.log 2>&1"  
+    ports:
+      - ${HSNC_CADVISOR_PORT}:8080
+    networks:
+      - hsnc-cadvisor
+networks:
+  hsnc-cadvisor:
+    driver: bridge

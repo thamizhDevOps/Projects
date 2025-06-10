@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  hsnc-blackbox-exporter:
+    image: ${HSNC_BLACKBOX_EXPORTER_IMAGE}
+    container_name: ${HSNC_NS}-hsnc-blackbox-exporter
+    user: "${CONTAINER_UID}:${CONTAINER_GID}"
+    labels: 
+      - "service=${HSNC_SERVICE_NAME}"
+      - "environment=${HSNC_NS}"
+      - "service_version=${HSNC_SERVICE_VERSION}"
+      - "process_name=blackbox_exporter"
+      - "process_type=primary"  
+    env_file:
+      - ${HSSTACK_COMMON_ENV_FILE}
+      - ../../common.env
+      - ${HSSTACK_HOST_ENV_FILE}
+    volumes:
+      - ${HSNC_LOGS}/blackbox_exporter:/var/log/blackbox_exporter
+      - ./blackbox_config.yml:/etc/blackbox_exporter/blackbox_config.yml
+    entrypoint: [ "/bin/sh", "-c" ]  
+    command:
+      - "blackbox_exporter --config.file=/etc/blackbox_exporter/blackbox_config.yml 2>&1 | tee -a /var/log/blackbox_exporter/blackbox.log"
+    ports:
+      - ${HSNC_BLACKBOX_EXPORTER_PORT}:9115
+    networks:
+      - hsnc-blackbox-exporter
+networks:
+  hsnc-blackbox-exporter:
+    driver: bridge

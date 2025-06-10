@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  hsnc-node-exporter:
+    image: ${HSNC_NODE_EXPORTER_IMAGE}
+    container_name: ${HSNC_NS}-hsnc-node_exporter
+    user: "${CONTAINER_UID}:${CONTAINER_GID}"
+    labels:
+      - "service=${HSNC_SERVICE_NAME}"
+      - "environment=${HSNC_NS}"
+      - "service_version=${HSNC_SERVICE_VERSION}"
+      - "process_name=node_exporter"
+      - "process_type=primary"
+    env_file:
+      - ${HSSTACK_COMMON_ENV_FILE}
+      - ../../common.env
+      - ${HSSTACK_HOST_ENV_FILE}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ${HSNC_DATA}/node_exporter:/data
+      - ${HSNC_LOGS}/node_exporter:/var/log/node_exporter
+    ports:
+      - ${HSNC_NODE_EXPORTER_PORT}:9100
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - "node_exporter > /var/log/node_exporter/node_exporter.log 2>&1"
+    networks:
+      - hsnc-node-exporter
+networks:
+  hsnc-node-exporter:
+    driver: bridge
+

@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  hsnc-prometheus:
+    image: ${HSNC_PROMETHEUS_IMAGE}
+    container_name: ${HSNC_NS}-hsnc-prometheus
+    user: "${CONTAINER_UID}:${CONTAINER_GID}"
+    labels: 
+      - "service=${HSNC_SERVICE_NAME}"
+      - "environment=${HSNC_NS}"
+      - "service_version=${HSNC_SERVICE_VERSION}"
+      - "process_name=prometheus"
+      - "process_type=primary"  
+    env_file:
+      - ${HSSTACK_COMMON_ENV_FILE}
+      - ../../common.env
+      - ./prometheus.env
+      - ${HSSTACK_HOST_ENV_FILE}
+    volumes:
+      - ${HSNC_DATA}/prometheus:/prometheus
+      - ${HSNC_LOGS}/prometheus:/var/log/prometheus
+      - ./prometheus_config.yml:/etc/prometheus/prometheus_config.yml
+    entrypoint: [ "/bin/sh", "-c" ]  
+    command:
+      - "mkdir -p /var/log/prometheus && chown -R 1001:1001 /var/log/prometheus && prometheus --config.file=/etc/prometheus/prometheus_config.yml --web.enable-admin-api --storage.tsdb.retention.time=7d 2>&1 | tee -a /var/log/prometheus/prometheus.log"
+    ports:
+      - ${HSNC_PROMETHEUS_PORT}:9090
+    networks:
+      - hsnc-prometheus
+networks:
+  hsnc-prometheus:
+    driver: bridge

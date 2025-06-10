@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  filestat_exporter:
+    image: ${HSNC_FILESTAT_EXPORTER_IMAGE}
+    container_name: ${HSNC_NS}-hsnc-filestat_exporter
+    user: "${CONTAINER_UID}:${CONTAINER_GID}"
+    labels:
+      - "service=${HSNC_SERVICE_NAME}"
+      - "environment=${HSNC_NS}"
+      - "service_version=${HSNC_SERVICE_VERSION}"
+      - "process_name=filestat_exporter"
+      - "process_type=primary"
+    env_file:
+      - ${HSSTACK_COMMON_ENV_FILE}
+      - ../../common.env
+      - ${HSSTACK_HOST_ENV_FILE}
+    ports:
+      - ${HSNC_FILESTAT_EXPORTER_PORT}:9943 # Expose filestat_exporter on port 9943
+    volumes:
+      - ./filestat.yaml:/config/filestat.yaml
+      - ${HSNC_LOGS}/filestat_exporter:/var/log/filestat_exporter
+      - ${HSNC_FE_HSI_EXCH_CSV_GEN_PATH}:${HSNC_FE_HSI_EXCH_CSV_GEN_PATH}
+      - ${HSNC_FE_HSM_EXCH_CSV_GEN_PATH}:${HSNC_FE_HSM_EXCH_CSV_GEN_PATH}
+      - ${HSNC_FE_HSM_EXCH_SCRIP_MASTER_PATH}:${HSNC_FE_HSM_EXCH_SCRIP_MASTER_PATH}   #for fetching file path inside the container
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - "mkdir -p /var/log/filestat_exporter && chown -R 1001:1001 /var/log/filestat_exporter && filestat_exporter --config.file=/config/filestat.yaml 2>&1 | tee -a /var/log/filestat_exporter/filestat_exporter.log"
+    restart: unless-stopped
+networks:
+  private:
+    driver: bridge
+

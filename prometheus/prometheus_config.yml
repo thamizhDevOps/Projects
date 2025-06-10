@@ -1,0 +1,79 @@
+global:
+  scrape_interval: 60s
+
+scrape_configs:
+
+  - job_name: filestat_exporter
+    track_timestamps_staleness: true
+    static_configs:
+      - targets: ['ip:9943']
+        labels:
+          instance: name
+          environment: tts-qa
+  - job_name: kafka-exporter
+    track_timestamps_staleness: true
+    scrape_interval: 2s
+    static_configs:
+      - targets: ['ip:9308']
+        labels:
+          instance: name
+          environment: tts-qa
+          machine: kafka-CLOUD1
+
+  - job_name: 'node-exporter'
+    track_timestamps_staleness: true
+    static_configs:
+      - targets: ['ip:7524']
+        labels:
+          instance: name 
+          environment: tts-qa
+
+  - job_name: 'cadvisor'
+    track_timestamps_staleness: true
+    static_configs:
+      - targets: ['ip:7522']
+        labels:
+          instance: name
+          environment: tts-qa
+    metrics_path: /metrics
+
+  - job_name: 'docker'
+    track_timestamps_staleness: true
+    static_configs:
+      - targets: ['ip:9323']
+        labels:
+          instance: name
+          environment: tts-qa
+
+# For blackbox configuration
+  - job_name: 'blackbox_http_probe'
+    track_timestamps_staleness: true
+    metrics_path: /probe
+    params:
+      module: [http_2xx]  # Probe HTTP 2xx status codes
+    static_configs:
+      - targets:
+        - urls------------
+
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: ip:7521  # Replace with the address of your blackbox_exporter instance
+  - job_name: 'blackbox_tcp_probe'
+    track_timestamps_staleness: true
+    metrics_path: /probe
+    params:
+      module: [tcp_connect]  # Probe HTTP 2xx status codes
+    static_configs:
+      - targets:
+        - ip:9090
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: ip:7521  # Replace with the address of your blackbox_exporter instance
+

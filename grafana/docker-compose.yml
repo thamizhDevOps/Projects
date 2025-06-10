@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  hsnc-grafana:
+    image: ${HSNC_NERVECENTER_MASTER_IMAGE}
+    container_name: ${HSNC_NS}-hsnc-nervecenter_master
+    user: "${CONTAINER_UID}:${CONTAINER_GID}"
+    labels: 
+      - "service=${HSNC_SERVICE_NAME}"
+      - "environment=${HSNC_NS}"
+      - "service_version=${HSNC_SERVICE_VERSION}"
+      - "process_name=nervecenter_master"
+      - "process_type=primary"  
+    env_file:
+      - ${HSSTACK_COMMON_ENV_FILE}
+      - ../../common.env
+      - ./nervecenter_master.env
+      - ${HSSTACK_HOST_ENV_FILE}
+    volumes:
+      - ${HSNC_DATA}/nervecenter_master:/var/lib/grafana
+      - ${HSNC_LOGS}/nervecenter_master:/var/log/grafana
+      - ./mapping_file/data_mapping_file.json:/etc/grafana/provisioning/script/data_mapping_file.json
+    entrypoint:
+      - /bin/bash
+      - -c
+      - |
+        /etc/grafana/provisioning/script/replace-env-vars.sh && /run.sh
+    networks:
+      - hsnc-grafana
+    ports:
+      - ${HSNC_NM_PORT}:3000
+networks:
+  hsnc-grafana:
+    driver: bridge
+
+  

@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+ kafka-exporter:
+  image: ${HSNC_KAFKA_EXPORTER_IMAGE}
+  container_name: ${HSNC_NS}-hsnc-kafka_exporter
+  restart: always
+  user: "${CONTAINER_UID}:${CONTAINER_GID}"
+  labels:
+    - "service=${HSNC_SERVICE_NAME}"
+    - "environment=${HSNC_NS}"
+    - "service_version=${HSNC_SERVICE_VERSION}"
+    - "process_name=kafka_exporter"
+    - "process_type=primary"
+  env_file:
+    - ${HSSTACK_COMMON_ENV_FILE}
+    - ../../common.env
+    - ${HSSTACK_HOST_ENV_FILE}
+  ports:
+    - ${HSNC_KAFKA_EXPORTER_PORT}:9308  # Kafka Exporter port
+  volumes:
+    - ${HSNC_LOGS}/kafka_exporter/kafka_exporter_logs:/var/log/kafka_exporter
+  entrypoint: ["/bin/sh", "-c"]
+  command:
+    - "mkdir -p /var/log/kafka_exporter && chown -R 1001:1001 /var/log/kafka_exporter && kafka_exporter --kafka.server=${HSNC_HOST_IP}:${HSNC_KAFKA_SERVER} 2>&1 | tee -a /var/log/kafka_exporter/kafka_exporter.log"
+  healthcheck:
+    test: ["CMD", "wget", "--spider", "-q", "http://${HSNC_HOST_IP}:${HSNC_KAFKA_EXPORTER_PORT}/metrics"]
+    interval: 60s # Run health check every 30 seconds
+    timeout: 10s # Timeout for each check
+    retries: 10
+

@@ -1,0 +1,12 @@
+exporter:
+
+  listen_address: ':9943'
+  metrics_path: /metrics
+
+  enable_crc32_metric: true
+  enable_nb_line_metric: true
+
+  files:
+    - patterns: ['/Data/ttsvolume/hsbroadcastvol/data/exch_scrip_master/index-data/bse_cm.json',
+'/Data/ttsvolume/hsbroadcastvol/data/exch_scrip_master/index-data/nse_cm.json',
+'/Data/ttsvolume/hsbroadcastvol/data/exch_scrip_master/info-data/bcs_fo.json']
