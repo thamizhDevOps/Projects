@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  trivy:
+    image: aquasec/trivy:0.54.1
+    container_name: trivy
+    restart: "no"
+    volumes:
+      - ./reports:/reports
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/thamizhmani/.docker/config.json:/root/.docker/config.json:ro
+    entrypoint: /bin/sh
+    command:
+      - -c
+      - |
+        trivy image \
+          --scanners vuln \
+          --format json \
+          --output /reports/gatlingframework.json \
+          registry.teligenz.in/teligenz/teligenz_dev/images/gatlingframework:latest \
+        && \
+        trivy convert \
+          --format template \
+          --template '@/contrib/html.tpl' \
+          --output /reports/gatlingframework.html \
+          /reports/gatlingframework.json
+

@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  trivy:
+    image: aquasec/trivy:0.54.1
+    container_name: trivy
+    restart: "no"
+    volumes:
+      - ./reports:/reports
+      - /home/devops/thamizh/trivy/hscommon_k8s:/scan:ro
+    entrypoint: /bin/sh
+    command:
+      - -c
+      - |
+        trivy fs \
+          --scanners vuln,secret,config \
+          --format json \
+          --output /reports/hscommon_k8s.json \
+          /scan && \
+        trivy convert \
+          --format template \
+          --template "@/contrib/html.tpl" \
+          --output /reports/hscommon_k8s.html \
+          /reports/hscommon_k8s.json
+

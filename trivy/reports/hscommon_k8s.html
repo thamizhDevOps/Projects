@@ -1,0 +1,1741 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h1 {
+        text-align: center;
+      }
+      .group-header th {
+        font-size: 200%;
+      }
+      .sub-header th {
+        font-size: 150%;
+      }
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        white-space: nowrap;
+        padding: .3em;
+      }
+      table {
+        margin: 0 auto;
+      }
+      .severity {
+        text-align: center;
+        font-weight: bold;
+        color: #fafafa;
+      }
+      .severity-LOW .severity { background-color: #5fbb31; }
+      .severity-MEDIUM .severity { background-color: #e9c600; }
+      .severity-HIGH .severity { background-color: #ff8800; }
+      .severity-CRITICAL .severity { background-color: #e40000; }
+      .severity-UNKNOWN .severity { background-color: #747474; }
+      .severity-LOW { background-color: #5fbb3160; }
+      .severity-MEDIUM { background-color: #e9c60060; }
+      .severity-HIGH { background-color: #ff880060; }
+      .severity-CRITICAL { background-color: #e4000060; }
+      .severity-UNKNOWN { background-color: #74747460; }
+      table tr td:first-of-type {
+        font-weight: bold;
+      }
+      .links a,
+      .links[data-more-links=on] a {
+        display: block;
+      }
+      .links[data-more-links=off] a:nth-of-type(1n+5) {
+        display: none;
+      }
+      a.toggle-more-links { cursor: pointer; }
+    </style>
+    <title>Dockerfile - Trivy Report - 2025-09-01 04:27:27.980841482 +0000 UTC m=+1.271473148 </title>
+    <script>
+      window.onload = function() {
+        document.querySelectorAll('td.links').forEach(function(linkCell) {
+          var links = [].concat.apply([], linkCell.querySelectorAll('a'));
+          [].sort.apply(links, function(a, b) {
+            return a.href > b.href ? 1 : -1;
+          });
+          links.forEach(function(link, idx) {
+            if (links.length > 3 && 3 === idx) {
+              var toggleLink = document.createElement('a');
+              toggleLink.innerText = "Toggle more links";
+              toggleLink.href = "#toggleMore";
+              toggleLink.setAttribute("class", "toggle-more-links");
+              linkCell.appendChild(toggleLink);
+            }
+            linkCell.appendChild(link);
+          });
+        });
+        document.querySelectorAll('a.toggle-more-links').forEach(function(toggleLink) {
+          toggleLink.onclick = function() {
+            var expanded = toggleLink.parentElement.getAttribute("data-more-links");
+            toggleLink.parentElement.setAttribute("data-more-links", "on" === expanded ? "off" : "on");
+            return false;
+          };
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <h1>Dockerfile - Trivy Report - 2025-09-01 04:27:27.980885239 +0000 UTC m=+1.271516870</h1>
+    <table>
+      <tr class="group-header"><th colspan="6">dockerfile</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr class="sub-header">
+        <th>Type</th>
+        <th>Misconf ID</th>
+        <th>Check</th>
+        <th>Severity</th>
+        <th>Message</th>
+      </tr>
+      <tr class="severity-HIGH">
+        <td class="misconf-type">Dockerfile Security Check</td>
+        <td>DS002</td>
+        <td class="misconf-check">Image user should not be &#39;root&#39;</td>
+        <td class="severity">HIGH</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Specify at least 1 USER command in Dockerfile with non-root user as argument
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ds002">https://avd.aquasec.com/misconfig/ds002</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Dockerfile Security Check</td>
+        <td>DS026</td>
+        <td class="misconf-check">No HEALTHCHECK defined</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Add HEALTHCHECK instruction in your Dockerfile
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ds026">https://avd.aquasec.com/misconfig/ds026</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr class="sub-header">
+        <th>Type</th>
+        <th>Misconf ID</th>
+        <th>Check</th>
+        <th>Severity</th>
+        <th>Message</th>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>AVD-KSV-01010</td>
+        <td class="misconf-check">ConfigMap with sensitive content</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          ConfigMap &#39;keycloak-config&#39; in &#39;default&#39; namespace stores sensitive contents in key(s) or value(s) &#39;{&#34;KC_DB_USERNAME&#34;, &#34;KEYCLOAK_ADMIN&#34;}&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/avd-ksv-01010">https://avd.aquasec.com/misconfig/avd-ksv-01010</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr class="sub-header">
+        <th>Type</th>
+        <th>Misconf ID</th>
+        <th>Check</th>
+        <th>Severity</th>
+        <th>Message</th>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV001</td>
+        <td class="misconf-check">Can elevate its own privileges</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;keycloak&#39; of Deployment &#39;keycloak&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv001">https://avd.aquasec.com/misconfig/ksv001</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV003</td>
+        <td class="misconf-check">Default capabilities: some containers do not drop all</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;keycloak&#39; of Deployment &#39;keycloak&#39; should add &#39;ALL&#39; to &#39;securityContext.capabilities.drop&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv003">https://avd.aquasec.com/misconfig/ksv003</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV011</td>
+        <td class="misconf-check">CPU not limited</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;keycloak&#39; of Deployment &#39;keycloak&#39; should set &#39;resources.limits.cpu&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv011">https://avd.aquasec.com/misconfig/ksv011</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV012</td>
+        <td class="misconf-check">Runs as root user</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;keycloak&#39; of Deployment &#39;keycloak&#39; should set &#39;securityContext.runAsNonRoot&#39; to true
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv012">https://avd.aquasec.com/misconfig/ksv012</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV013</td>
+        <td class="misconf-check">Image tag &#34;:latest&#34; used</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;keycloak&#39; of Deployment &#39;keycloak&#39; should specify an image tag
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv013">https://avd.aquasec.com/misconfig/ksv013</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-HIGH">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV014</td>
+        <td class="misconf-check">Root file system is not read-only</td>
+        <td class="severity">HIGH</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;keycloak&#39; of Deployment &#39;keycloak&#39; should set &#39;securityContext.readOnlyRootFilesystem&#39; to true
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv014">https://avd.aquasec.com/misconfig/ksv014</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV015</td>
+        <td class="misconf-check">CPU requests not specified</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;keycloak&#39; of Deployment &#39;keycloak&#39; should set &#39;resources.requests.cpu&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv015">https://avd.aquasec.com/misconfig/ksv015</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV016</td>
+        <td class="misconf-check">Memory requests not specified</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;keycloak&#39; of Deployment &#39;keycloak&#39; should set &#39;resources.requests.memory&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv016">https://avd.aquasec.com/misconfig/ksv016</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV018</td>
+        <td class="misconf-check">Memory not limited</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;keycloak&#39; of Deployment &#39;keycloak&#39; should set &#39;resources.limits.memory&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv018">https://avd.aquasec.com/misconfig/ksv018</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV020</td>
+        <td class="misconf-check">Runs with UID &lt;= 10000</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;keycloak&#39; of Deployment &#39;keycloak&#39; should set &#39;securityContext.runAsUser&#39; &gt; 10000
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv020">https://avd.aquasec.com/misconfig/ksv020</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV021</td>
+        <td class="misconf-check">Runs with GID &lt;= 10000</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;keycloak&#39; of Deployment &#39;keycloak&#39; should set &#39;securityContext.runAsGroup&#39; &gt; 10000
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv021">https://avd.aquasec.com/misconfig/ksv021</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV030</td>
+        <td class="misconf-check">Runtime/Default Seccomp profile not set</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Either Pod or Container should set &#39;securityContext.seccompProfile.type&#39; to &#39;RuntimeDefault&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv030">https://avd.aquasec.com/misconfig/ksv030</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV104</td>
+        <td class="misconf-check">Seccomp policies disabled</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          container &#34;keycloak&#34; of deployment &#34;keycloak&#34; in &#34;default&#34; namespace should specify a seccomp profile
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv104">https://avd.aquasec.com/misconfig/ksv104</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV106</td>
+        <td class="misconf-check">Container capabilities must only include NET_BIND_SERVICE</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          container should drop all
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv106">https://avd.aquasec.com/misconfig/ksv106</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr class="sub-header">
+        <th>Type</th>
+        <th>Misconf ID</th>
+        <th>Check</th>
+        <th>Severity</th>
+        <th>Message</th>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV001</td>
+        <td class="misconf-check">Can elevate its own privileges</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;hsco-keydb-container&#39; of Deployment &#39;tts-dev-hsco-keydb&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv001">https://avd.aquasec.com/misconfig/ksv001</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV003</td>
+        <td class="misconf-check">Default capabilities: some containers do not drop all</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;hsco-keydb-container&#39; of Deployment &#39;tts-dev-hsco-keydb&#39; should add &#39;ALL&#39; to &#39;securityContext.capabilities.drop&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv003">https://avd.aquasec.com/misconfig/ksv003</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV011</td>
+        <td class="misconf-check">CPU not limited</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;hsco-keydb-container&#39; of Deployment &#39;tts-dev-hsco-keydb&#39; should set &#39;resources.limits.cpu&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv011">https://avd.aquasec.com/misconfig/ksv011</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV012</td>
+        <td class="misconf-check">Runs as root user</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;hsco-keydb-container&#39; of Deployment &#39;tts-dev-hsco-keydb&#39; should set &#39;securityContext.runAsNonRoot&#39; to true
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv012">https://avd.aquasec.com/misconfig/ksv012</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-HIGH">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV014</td>
+        <td class="misconf-check">Root file system is not read-only</td>
+        <td class="severity">HIGH</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;hsco-keydb-container&#39; of Deployment &#39;tts-dev-hsco-keydb&#39; should set &#39;securityContext.readOnlyRootFilesystem&#39; to true
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv014">https://avd.aquasec.com/misconfig/ksv014</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV015</td>
+        <td class="misconf-check">CPU requests not specified</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;hsco-keydb-container&#39; of Deployment &#39;tts-dev-hsco-keydb&#39; should set &#39;resources.requests.cpu&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv015">https://avd.aquasec.com/misconfig/ksv015</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV016</td>
+        <td class="misconf-check">Memory requests not specified</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;hsco-keydb-container&#39; of Deployment &#39;tts-dev-hsco-keydb&#39; should set &#39;resources.requests.memory&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv016">https://avd.aquasec.com/misconfig/ksv016</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV018</td>
+        <td class="misconf-check">Memory not limited</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;hsco-keydb-container&#39; of Deployment &#39;tts-dev-hsco-keydb&#39; should set &#39;resources.limits.memory&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv018">https://avd.aquasec.com/misconfig/ksv018</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV020</td>
+        <td class="misconf-check">Runs with UID &lt;= 10000</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;hsco-keydb-container&#39; of Deployment &#39;tts-dev-hsco-keydb&#39; should set &#39;securityContext.runAsUser&#39; &gt; 10000
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv020">https://avd.aquasec.com/misconfig/ksv020</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV021</td>
+        <td class="misconf-check">Runs with GID &lt;= 10000</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;hsco-keydb-container&#39; of Deployment &#39;tts-dev-hsco-keydb&#39; should set &#39;securityContext.runAsGroup&#39; &gt; 10000
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv021">https://avd.aquasec.com/misconfig/ksv021</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV030</td>
+        <td class="misconf-check">Runtime/Default Seccomp profile not set</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Either Pod or Container should set &#39;securityContext.seccompProfile.type&#39; to &#39;RuntimeDefault&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv030">https://avd.aquasec.com/misconfig/ksv030</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV104</td>
+        <td class="misconf-check">Seccomp policies disabled</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          container &#34;hsco-keydb-container&#34; of deployment &#34;tts-dev-hsco-keydb&#34; in &#34;default&#34; namespace should specify a seccomp profile
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv104">https://avd.aquasec.com/misconfig/ksv104</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV106</td>
+        <td class="misconf-check">Container capabilities must only include NET_BIND_SERVICE</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          container should drop all
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv106">https://avd.aquasec.com/misconfig/ksv106</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr class="sub-header">
+        <th>Type</th>
+        <th>Misconf ID</th>
+        <th>Check</th>
+        <th>Severity</th>
+        <th>Message</th>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV001</td>
+        <td class="misconf-check">Can elevate its own privileges</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;mariadb&#39; of Deployment &#39;tts-dev-hsco-mariadb&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv001">https://avd.aquasec.com/misconfig/ksv001</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV003</td>
+        <td class="misconf-check">Default capabilities: some containers do not drop all</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;mariadb&#39; of Deployment &#39;tts-dev-hsco-mariadb&#39; should add &#39;ALL&#39; to &#39;securityContext.capabilities.drop&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv003">https://avd.aquasec.com/misconfig/ksv003</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV012</td>
+        <td class="misconf-check">Runs as root user</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;mariadb&#39; of Deployment &#39;tts-dev-hsco-mariadb&#39; should set &#39;securityContext.runAsNonRoot&#39; to true
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv012">https://avd.aquasec.com/misconfig/ksv012</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-HIGH">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV014</td>
+        <td class="misconf-check">Root file system is not read-only</td>
+        <td class="severity">HIGH</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;mariadb&#39; of Deployment &#39;tts-dev-hsco-mariadb&#39; should set &#39;securityContext.readOnlyRootFilesystem&#39; to true
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv014">https://avd.aquasec.com/misconfig/ksv014</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV020</td>
+        <td class="misconf-check">Runs with UID &lt;= 10000</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;mariadb&#39; of Deployment &#39;tts-dev-hsco-mariadb&#39; should set &#39;securityContext.runAsUser&#39; &gt; 10000
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv020">https://avd.aquasec.com/misconfig/ksv020</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV021</td>
+        <td class="misconf-check">Runs with GID &lt;= 10000</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;mariadb&#39; of Deployment &#39;tts-dev-hsco-mariadb&#39; should set &#39;securityContext.runAsGroup&#39; &gt; 10000
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv021">https://avd.aquasec.com/misconfig/ksv021</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV030</td>
+        <td class="misconf-check">Runtime/Default Seccomp profile not set</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Either Pod or Container should set &#39;securityContext.seccompProfile.type&#39; to &#39;RuntimeDefault&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv030">https://avd.aquasec.com/misconfig/ksv030</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV104</td>
+        <td class="misconf-check">Seccomp policies disabled</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          container &#34;mariadb&#34; of deployment &#34;tts-dev-hsco-mariadb&#34; in &#34;default&#34; namespace should specify a seccomp profile
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv104">https://avd.aquasec.com/misconfig/ksv104</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV106</td>
+        <td class="misconf-check">Container capabilities must only include NET_BIND_SERVICE</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          container should drop all
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv106">https://avd.aquasec.com/misconfig/ksv106</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr class="sub-header">
+        <th>Type</th>
+        <th>Misconf ID</th>
+        <th>Check</th>
+        <th>Severity</th>
+        <th>Message</th>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV001</td>
+        <td class="misconf-check">Can elevate its own privileges</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;nginx&#39; of Deployment &#39;hsco-nginx&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv001">https://avd.aquasec.com/misconfig/ksv001</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV003</td>
+        <td class="misconf-check">Default capabilities: some containers do not drop all</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;nginx&#39; of Deployment &#39;hsco-nginx&#39; should add &#39;ALL&#39; to &#39;securityContext.capabilities.drop&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv003">https://avd.aquasec.com/misconfig/ksv003</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV011</td>
+        <td class="misconf-check">CPU not limited</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;nginx&#39; of Deployment &#39;hsco-nginx&#39; should set &#39;resources.limits.cpu&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv011">https://avd.aquasec.com/misconfig/ksv011</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV012</td>
+        <td class="misconf-check">Runs as root user</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;nginx&#39; of Deployment &#39;hsco-nginx&#39; should set &#39;securityContext.runAsNonRoot&#39; to true
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv012">https://avd.aquasec.com/misconfig/ksv012</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-HIGH">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV014</td>
+        <td class="misconf-check">Root file system is not read-only</td>
+        <td class="severity">HIGH</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;nginx&#39; of Deployment &#39;hsco-nginx&#39; should set &#39;securityContext.readOnlyRootFilesystem&#39; to true
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv014">https://avd.aquasec.com/misconfig/ksv014</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV015</td>
+        <td class="misconf-check">CPU requests not specified</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;nginx&#39; of Deployment &#39;hsco-nginx&#39; should set &#39;resources.requests.cpu&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv015">https://avd.aquasec.com/misconfig/ksv015</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV016</td>
+        <td class="misconf-check">Memory requests not specified</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;nginx&#39; of Deployment &#39;hsco-nginx&#39; should set &#39;resources.requests.memory&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv016">https://avd.aquasec.com/misconfig/ksv016</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV018</td>
+        <td class="misconf-check">Memory not limited</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;nginx&#39; of Deployment &#39;hsco-nginx&#39; should set &#39;resources.limits.memory&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv018">https://avd.aquasec.com/misconfig/ksv018</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV020</td>
+        <td class="misconf-check">Runs with UID &lt;= 10000</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;nginx&#39; of Deployment &#39;hsco-nginx&#39; should set &#39;securityContext.runAsUser&#39; &gt; 10000
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv020">https://avd.aquasec.com/misconfig/ksv020</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV021</td>
+        <td class="misconf-check">Runs with GID &lt;= 10000</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;nginx&#39; of Deployment &#39;hsco-nginx&#39; should set &#39;securityContext.runAsGroup&#39; &gt; 10000
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv021">https://avd.aquasec.com/misconfig/ksv021</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV022</td>
+        <td class="misconf-check">Specific capabilities added</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;nginx&#39; of Deployment &#39;hsco-nginx&#39; should not set &#39;securityContext.capabilities.add&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv022">https://avd.aquasec.com/misconfig/ksv022</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV030</td>
+        <td class="misconf-check">Runtime/Default Seccomp profile not set</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Either Pod or Container should set &#39;securityContext.seccompProfile.type&#39; to &#39;RuntimeDefault&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv030">https://avd.aquasec.com/misconfig/ksv030</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV104</td>
+        <td class="misconf-check">Seccomp policies disabled</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          container &#34;nginx&#34; of deployment &#34;hsco-nginx&#34; in &#34;hsco&#34; namespace should specify a seccomp profile
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv104">https://avd.aquasec.com/misconfig/ksv104</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV105</td>
+        <td class="misconf-check">Containers must not set runAsUser to 0</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          securityContext.runAsUser should be set to a value greater than 0
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv105">https://avd.aquasec.com/misconfig/ksv105</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV106</td>
+        <td class="misconf-check">Container capabilities must only include NET_BIND_SERVICE</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          container should drop all
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv106">https://avd.aquasec.com/misconfig/ksv106</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr class="sub-header">
+        <th>Type</th>
+        <th>Misconf ID</th>
+        <th>Check</th>
+        <th>Severity</th>
+        <th>Message</th>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>AVD-KSV-01010</td>
+        <td class="misconf-check">ConfigMap with sensitive content</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          ConfigMap &#39;openldap-config&#39; in &#39;default&#39; namespace stores sensitive contents in key(s) or value(s) &#39;{&#34;LDAPS_PORT&#34;, &#34;LDAP_ADMIN_USERNAME&#34;, &#34;LDAP_LOG_LEVEL&#34;, &#34;LDAP_PORT&#34;}&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/avd-ksv-01010">https://avd.aquasec.com/misconfig/avd-ksv-01010</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-HIGH">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>AVD-KSV-0109</td>
+        <td class="misconf-check">ConfigMap with secrets</td>
+        <td class="severity">HIGH</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          ConfigMap &#39;openldap-config&#39; in &#39;default&#39; namespace stores secrets in key(s) or value(s) &#39;{&#34;LDAP_CONFIG_PASSWORD&#34;}&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/avd-ksv-0109">https://avd.aquasec.com/misconfig/avd-ksv-0109</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr class="sub-header">
+        <th>Type</th>
+        <th>Misconf ID</th>
+        <th>Check</th>
+        <th>Severity</th>
+        <th>Message</th>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV001</td>
+        <td class="misconf-check">Can elevate its own privileges</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;openldap&#39; of Deployment &#39;hsco-openldap&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv001">https://avd.aquasec.com/misconfig/ksv001</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV003</td>
+        <td class="misconf-check">Default capabilities: some containers do not drop all</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;openldap&#39; of Deployment &#39;hsco-openldap&#39; should add &#39;ALL&#39; to &#39;securityContext.capabilities.drop&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv003">https://avd.aquasec.com/misconfig/ksv003</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV012</td>
+        <td class="misconf-check">Runs as root user</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;openldap&#39; of Deployment &#39;hsco-openldap&#39; should set &#39;securityContext.runAsNonRoot&#39; to true
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv012">https://avd.aquasec.com/misconfig/ksv012</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-HIGH">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV014</td>
+        <td class="misconf-check">Root file system is not read-only</td>
+        <td class="severity">HIGH</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;openldap&#39; of Deployment &#39;hsco-openldap&#39; should set &#39;securityContext.readOnlyRootFilesystem&#39; to true
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv014">https://avd.aquasec.com/misconfig/ksv014</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV020</td>
+        <td class="misconf-check">Runs with UID &lt;= 10000</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;openldap&#39; of Deployment &#39;hsco-openldap&#39; should set &#39;securityContext.runAsUser&#39; &gt; 10000
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv020">https://avd.aquasec.com/misconfig/ksv020</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV021</td>
+        <td class="misconf-check">Runs with GID &lt;= 10000</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;openldap&#39; of Deployment &#39;hsco-openldap&#39; should set &#39;securityContext.runAsGroup&#39; &gt; 10000
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv021">https://avd.aquasec.com/misconfig/ksv021</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV030</td>
+        <td class="misconf-check">Runtime/Default Seccomp profile not set</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Either Pod or Container should set &#39;securityContext.seccompProfile.type&#39; to &#39;RuntimeDefault&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv030">https://avd.aquasec.com/misconfig/ksv030</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV104</td>
+        <td class="misconf-check">Seccomp policies disabled</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          container &#34;openldap&#34; of deployment &#34;hsco-openldap&#34; in &#34;default&#34; namespace should specify a seccomp profile
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv104">https://avd.aquasec.com/misconfig/ksv104</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV106</td>
+        <td class="misconf-check">Container capabilities must only include NET_BIND_SERVICE</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          container should drop all
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv106">https://avd.aquasec.com/misconfig/ksv106</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV110</td>
+        <td class="misconf-check">Workloads in the default namespace</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          deployment hsco-openldap in default namespace should set metadata.namespace to a non-default namespace
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv110">https://avd.aquasec.com/misconfig/ksv110</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-HIGH">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV117</td>
+        <td class="misconf-check">Prevent binding to privileged ports</td>
+        <td class="severity">HIGH</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          deployment hsco-openldap in default namespace should not set spec.template.spec.containers.ports.containerPort to less than 1024
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv117">https://avd.aquasec.com/misconfig/ksv117</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr class="sub-header">
+        <th>Type</th>
+        <th>Misconf ID</th>
+        <th>Check</th>
+        <th>Severity</th>
+        <th>Message</th>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV001</td>
+        <td class="misconf-check">Can elevate its own privileges</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;hsco-opensearch&#39; of Deployment &#39;hsco-opensearch&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv001">https://avd.aquasec.com/misconfig/ksv001</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV003</td>
+        <td class="misconf-check">Default capabilities: some containers do not drop all</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;hsco-opensearch&#39; of Deployment &#39;hsco-opensearch&#39; should add &#39;ALL&#39; to &#39;securityContext.capabilities.drop&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv003">https://avd.aquasec.com/misconfig/ksv003</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV012</td>
+        <td class="misconf-check">Runs as root user</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;hsco-opensearch&#39; of Deployment &#39;hsco-opensearch&#39; should set &#39;securityContext.runAsNonRoot&#39; to true
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv012">https://avd.aquasec.com/misconfig/ksv012</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-HIGH">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV014</td>
+        <td class="misconf-check">Root file system is not read-only</td>
+        <td class="severity">HIGH</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;hsco-opensearch&#39; of Deployment &#39;hsco-opensearch&#39; should set &#39;securityContext.readOnlyRootFilesystem&#39; to true
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv014">https://avd.aquasec.com/misconfig/ksv014</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV020</td>
+        <td class="misconf-check">Runs with UID &lt;= 10000</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;hsco-opensearch&#39; of Deployment &#39;hsco-opensearch&#39; should set &#39;securityContext.runAsUser&#39; &gt; 10000
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv020">https://avd.aquasec.com/misconfig/ksv020</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV021</td>
+        <td class="misconf-check">Runs with GID &lt;= 10000</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;hsco-opensearch&#39; of Deployment &#39;hsco-opensearch&#39; should set &#39;securityContext.runAsGroup&#39; &gt; 10000
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv021">https://avd.aquasec.com/misconfig/ksv021</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV030</td>
+        <td class="misconf-check">Runtime/Default Seccomp profile not set</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Either Pod or Container should set &#39;securityContext.seccompProfile.type&#39; to &#39;RuntimeDefault&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv030">https://avd.aquasec.com/misconfig/ksv030</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV104</td>
+        <td class="misconf-check">Seccomp policies disabled</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          container &#34;hsco-opensearch&#34; of deployment &#34;hsco-opensearch&#34; in &#34;default&#34; namespace should specify a seccomp profile
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv104">https://avd.aquasec.com/misconfig/ksv104</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV106</td>
+        <td class="misconf-check">Container capabilities must only include NET_BIND_SERVICE</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          container should drop all
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv106">https://avd.aquasec.com/misconfig/ksv106</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV110</td>
+        <td class="misconf-check">Workloads in the default namespace</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          deployment hsco-opensearch in default namespace should set metadata.namespace to a non-default namespace
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv110">https://avd.aquasec.com/misconfig/ksv110</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr class="sub-header">
+        <th>Type</th>
+        <th>Misconf ID</th>
+        <th>Check</th>
+        <th>Severity</th>
+        <th>Message</th>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV001</td>
+        <td class="misconf-check">Can elevate its own privileges</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;opensearch-dashboards&#39; of Deployment &#39;hsco-opensearch-dashboards&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv001">https://avd.aquasec.com/misconfig/ksv001</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV003</td>
+        <td class="misconf-check">Default capabilities: some containers do not drop all</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;opensearch-dashboards&#39; of Deployment &#39;hsco-opensearch-dashboards&#39; should add &#39;ALL&#39; to &#39;securityContext.capabilities.drop&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv003">https://avd.aquasec.com/misconfig/ksv003</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-HIGH">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV014</td>
+        <td class="misconf-check">Root file system is not read-only</td>
+        <td class="severity">HIGH</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;opensearch-dashboards&#39; of Deployment &#39;hsco-opensearch-dashboards&#39; should set &#39;securityContext.readOnlyRootFilesystem&#39; to true
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv014">https://avd.aquasec.com/misconfig/ksv014</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV020</td>
+        <td class="misconf-check">Runs with UID &lt;= 10000</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;opensearch-dashboards&#39; of Deployment &#39;hsco-opensearch-dashboards&#39; should set &#39;securityContext.runAsUser&#39; &gt; 10000
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv020">https://avd.aquasec.com/misconfig/ksv020</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV021</td>
+        <td class="misconf-check">Runs with GID &lt;= 10000</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;opensearch-dashboards&#39; of Deployment &#39;hsco-opensearch-dashboards&#39; should set &#39;securityContext.runAsGroup&#39; &gt; 10000
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv021">https://avd.aquasec.com/misconfig/ksv021</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV030</td>
+        <td class="misconf-check">Runtime/Default Seccomp profile not set</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Either Pod or Container should set &#39;securityContext.seccompProfile.type&#39; to &#39;RuntimeDefault&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv030">https://avd.aquasec.com/misconfig/ksv030</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV104</td>
+        <td class="misconf-check">Seccomp policies disabled</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          container &#34;opensearch-dashboards&#34; of deployment &#34;hsco-opensearch-dashboards&#34; in &#34;default&#34; namespace should specify a seccomp profile
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv104">https://avd.aquasec.com/misconfig/ksv104</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV106</td>
+        <td class="misconf-check">Container capabilities must only include NET_BIND_SERVICE</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          container should drop all
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv106">https://avd.aquasec.com/misconfig/ksv106</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV110</td>
+        <td class="misconf-check">Workloads in the default namespace</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          deployment hsco-opensearch-dashboards in default namespace should set metadata.namespace to a non-default namespace
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv110">https://avd.aquasec.com/misconfig/ksv110</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr class="sub-header">
+        <th>Type</th>
+        <th>Misconf ID</th>
+        <th>Check</th>
+        <th>Severity</th>
+        <th>Message</th>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV001</td>
+        <td class="misconf-check">Can elevate its own privileges</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;postgres&#39; of Deployment &#39;postgres&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv001">https://avd.aquasec.com/misconfig/ksv001</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV003</td>
+        <td class="misconf-check">Default capabilities: some containers do not drop all</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;postgres&#39; of Deployment &#39;postgres&#39; should add &#39;ALL&#39; to &#39;securityContext.capabilities.drop&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv003">https://avd.aquasec.com/misconfig/ksv003</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV011</td>
+        <td class="misconf-check">CPU not limited</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;postgres&#39; of Deployment &#39;postgres&#39; should set &#39;resources.limits.cpu&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv011">https://avd.aquasec.com/misconfig/ksv011</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV012</td>
+        <td class="misconf-check">Runs as root user</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;postgres&#39; of Deployment &#39;postgres&#39; should set &#39;securityContext.runAsNonRoot&#39; to true
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv012">https://avd.aquasec.com/misconfig/ksv012</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV013</td>
+        <td class="misconf-check">Image tag &#34;:latest&#34; used</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;postgres&#39; of Deployment &#39;postgres&#39; should specify an image tag
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv013">https://avd.aquasec.com/misconfig/ksv013</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-HIGH">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV014</td>
+        <td class="misconf-check">Root file system is not read-only</td>
+        <td class="severity">HIGH</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;postgres&#39; of Deployment &#39;postgres&#39; should set &#39;securityContext.readOnlyRootFilesystem&#39; to true
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv014">https://avd.aquasec.com/misconfig/ksv014</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV015</td>
+        <td class="misconf-check">CPU requests not specified</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;postgres&#39; of Deployment &#39;postgres&#39; should set &#39;resources.requests.cpu&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv015">https://avd.aquasec.com/misconfig/ksv015</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV016</td>
+        <td class="misconf-check">Memory requests not specified</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;postgres&#39; of Deployment &#39;postgres&#39; should set &#39;resources.requests.memory&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv016">https://avd.aquasec.com/misconfig/ksv016</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV018</td>
+        <td class="misconf-check">Memory not limited</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;postgres&#39; of Deployment &#39;postgres&#39; should set &#39;resources.limits.memory&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv018">https://avd.aquasec.com/misconfig/ksv018</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV020</td>
+        <td class="misconf-check">Runs with UID &lt;= 10000</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;postgres&#39; of Deployment &#39;postgres&#39; should set &#39;securityContext.runAsUser&#39; &gt; 10000
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv020">https://avd.aquasec.com/misconfig/ksv020</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV021</td>
+        <td class="misconf-check">Runs with GID &lt;= 10000</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;postgres&#39; of Deployment &#39;postgres&#39; should set &#39;securityContext.runAsGroup&#39; &gt; 10000
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv021">https://avd.aquasec.com/misconfig/ksv021</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV030</td>
+        <td class="misconf-check">Runtime/Default Seccomp profile not set</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Either Pod or Container should set &#39;securityContext.seccompProfile.type&#39; to &#39;RuntimeDefault&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv030">https://avd.aquasec.com/misconfig/ksv030</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV104</td>
+        <td class="misconf-check">Seccomp policies disabled</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          container &#34;postgres&#34; of deployment &#34;postgres&#34; in &#34;default&#34; namespace should specify a seccomp profile
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv104">https://avd.aquasec.com/misconfig/ksv104</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV106</td>
+        <td class="misconf-check">Container capabilities must only include NET_BIND_SERVICE</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          container should drop all
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv106">https://avd.aquasec.com/misconfig/ksv106</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6">kubernetes</th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr class="sub-header">
+        <th>Type</th>
+        <th>Misconf ID</th>
+        <th>Check</th>
+        <th>Severity</th>
+        <th>Message</th>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV001</td>
+        <td class="misconf-check">Can elevate its own privileges</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;zookeeper&#39; of Deployment &#39;zookeeper&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv001">https://avd.aquasec.com/misconfig/ksv001</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV003</td>
+        <td class="misconf-check">Default capabilities: some containers do not drop all</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;zookeeper&#39; of Deployment &#39;zookeeper&#39; should add &#39;ALL&#39; to &#39;securityContext.capabilities.drop&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv003">https://avd.aquasec.com/misconfig/ksv003</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV011</td>
+        <td class="misconf-check">CPU not limited</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;zookeeper&#39; of Deployment &#39;zookeeper&#39; should set &#39;resources.limits.cpu&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv011">https://avd.aquasec.com/misconfig/ksv011</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV012</td>
+        <td class="misconf-check">Runs as root user</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;zookeeper&#39; of Deployment &#39;zookeeper&#39; should set &#39;securityContext.runAsNonRoot&#39; to true
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv012">https://avd.aquasec.com/misconfig/ksv012</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV013</td>
+        <td class="misconf-check">Image tag &#34;:latest&#34; used</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;zookeeper&#39; of Deployment &#39;zookeeper&#39; should specify an image tag
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv013">https://avd.aquasec.com/misconfig/ksv013</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-HIGH">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV014</td>
+        <td class="misconf-check">Root file system is not read-only</td>
+        <td class="severity">HIGH</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;zookeeper&#39; of Deployment &#39;zookeeper&#39; should set &#39;securityContext.readOnlyRootFilesystem&#39; to true
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv014">https://avd.aquasec.com/misconfig/ksv014</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV015</td>
+        <td class="misconf-check">CPU requests not specified</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;zookeeper&#39; of Deployment &#39;zookeeper&#39; should set &#39;resources.requests.cpu&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv015">https://avd.aquasec.com/misconfig/ksv015</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV016</td>
+        <td class="misconf-check">Memory requests not specified</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;zookeeper&#39; of Deployment &#39;zookeeper&#39; should set &#39;resources.requests.memory&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv016">https://avd.aquasec.com/misconfig/ksv016</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV018</td>
+        <td class="misconf-check">Memory not limited</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;zookeeper&#39; of Deployment &#39;zookeeper&#39; should set &#39;resources.limits.memory&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv018">https://avd.aquasec.com/misconfig/ksv018</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV020</td>
+        <td class="misconf-check">Runs with UID &lt;= 10000</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;zookeeper&#39; of Deployment &#39;zookeeper&#39; should set &#39;securityContext.runAsUser&#39; &gt; 10000
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv020">https://avd.aquasec.com/misconfig/ksv020</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV021</td>
+        <td class="misconf-check">Runs with GID &lt;= 10000</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Container &#39;zookeeper&#39; of Deployment &#39;zookeeper&#39; should set &#39;securityContext.runAsGroup&#39; &gt; 10000
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv021">https://avd.aquasec.com/misconfig/ksv021</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV030</td>
+        <td class="misconf-check">Runtime/Default Seccomp profile not set</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          Either Pod or Container should set &#39;securityContext.seccompProfile.type&#39; to &#39;RuntimeDefault&#39;
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv030">https://avd.aquasec.com/misconfig/ksv030</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-MEDIUM">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV104</td>
+        <td class="misconf-check">Seccomp policies disabled</td>
+        <td class="severity">MEDIUM</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          container &#34;zookeeper&#34; of deployment &#34;zookeeper&#34; in &#34;default&#34; namespace should specify a seccomp profile
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv104">https://avd.aquasec.com/misconfig/ksv104</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="severity-LOW">
+        <td class="misconf-type">Kubernetes Security Check</td>
+        <td>KSV106</td>
+        <td class="misconf-check">Container capabilities must only include NET_BIND_SERVICE</td>
+        <td class="severity">LOW</td>
+        <td class="link" data-more-links="off"  style="white-space:normal;">
+          container should drop all
+          <br>
+            <a href="https://avd.aquasec.com/misconfig/ksv106">https://avd.aquasec.com/misconfig/ksv106</a>
+          </br>
+        </td>
+      </tr>
+      <tr class="group-header"><th colspan="6"></th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6"></th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+      <tr class="group-header"><th colspan="6"></th></tr>
+      <tr><th colspan="6">No Vulnerabilities found</th></tr>
+      <tr><th colspan="6">No Misconfigurations found</th></tr>
+    </table>
+  </body>
+</html>

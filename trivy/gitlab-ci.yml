@@ -1,0 +1,21 @@
+security-scan-job:
+  stage: security
+  tags: [docker]
+  image: aquasec/trivy:0.54.1
+  script:
+    # Show Trivy version
+    - trivy --version
+
+    # Generate TXT report (human readable)
+    - trivy image --scanners vuln --format table --output gatlingframework.txt registry.teligenz.in/teligenz/teligenz_dev/images/gatlingframework:latest
+
+    # Generate JSON → then convert to HTML
+    - trivy image --scanners vuln --format json --output gatlingframework.json registry.teligenz.in/teligenz_dev/images/gatlingframework:latest
+    - trivy convert --format template --template '@/contrib/html.tpl' --output gatlingframework.html gatlingframework.json
+  artifacts:
+    paths:
+      - gatlingframework.txt
+      - gatlingframework.html
+    expire_in: 7 days
+  allow_failure: true
+
