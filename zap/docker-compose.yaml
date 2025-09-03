@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  zap:
+    image: ghcr.io/zaproxy/zaproxy:stable
+    container_name: zap_full_scan
+    volumes:
+      - ./:/zap/wrk/
+    command: >
+      zap-full-scan.py
+      -t http://your-application-url.com
+      -r zap_report.html
+
