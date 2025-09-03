@@ -1,0 +1,17 @@
+services:
+  gitleaks:
+    image: zricethezav/gitleaks:v7.6.1
+    container_name: gitleaks
+    user: "1001:1001"  
+    volumes:
+      - ./reports:/reports
+    env_file:
+      - .env
+    entrypoint: ["sh", "-c"]
+    command:
+      - >
+        gitleaks --repo-url=https://${GIT_USERNAME}:${GIT_TOKEN}@extgit.teligenz.in/teligenz/devops/hscommon_k8s.git
+        --report=/reports/gitleaks_report.json
+        --format=json
+        --verbose
+

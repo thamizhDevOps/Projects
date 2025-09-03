@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  zap:
+    image: zaproxy/zap-stable
+    container_name: zaproxy
+    command: >
+      zap.sh -daemon -host 0.0.0.0 -port 8090
+    ports:
+      - "8090:8090"
+    volumes:
+      - ./zap_data:/home/zap/.ZAP
+    restart: unless-stopped
+

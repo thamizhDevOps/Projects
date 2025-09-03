@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  gitleaks:
+    image: zricethezav/gitleaks:latest   # Official Gitleaks image
+    container_name: gitleaks
+    working_dir: /scan
+    volumes:
+      - ./repo:/scan     # 👈 mount the repo you want to scan
+      - ./reports:/reports   # 👈 save reports here
+    entrypoint: [ "gitleaks" ]
+    command: [ "detect", "--source=.", "--report-path=/reports/gitleaks_report.json", "--verbose" ]
+

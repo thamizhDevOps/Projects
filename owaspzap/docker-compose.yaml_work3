@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  zap:
+    image: ghcr.io/zaproxy/zaproxy:stable
+    container_name: zap_full_scan
+    user: root
+    volumes:
+      # Folder for scan reports
+      - ./zap-reports:/zap/wrk/
+      # Writable temp folder to avoid mktemp permission issues
+      - ./zap-temp:/tmp
+    environment:
+      # Run Java in headless mode
+      - JAVA_OPTS=-Djava.awt.headless=true
+    command: >
+      sh -c "xvfb-run -a zap-full-scan.py
+      -t https://qalounge.teligenz.in/service/auth/rest/
+      -r /zap/wrk/zap_report.html
+      -d > /zap/wrk/zap_scan.log 2>&1"
+

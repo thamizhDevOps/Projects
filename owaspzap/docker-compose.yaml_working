@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  zap:
+    image: ghcr.io/zaproxy/zaproxy:stable #chanathipbupp/owaspzap:1.0.2
+    container_name: zap
+    command: >
+      zap-full-scan.py
+      -t 
+      -r zap-report.html
+      -I
+      -d
+    volumes:
+      - ./zap-reports:/zap/wrk
+

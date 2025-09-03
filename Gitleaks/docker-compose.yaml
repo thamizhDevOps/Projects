@@ -1,0 +1,15 @@
+services:
+  gitleaks:
+    image: zricethezav/gitleaks:latest
+    container_name: gitleaks
+    user: "1001:1001"
+    volumes:
+      - /home/devops/thamizh/Gitleaks/hscommon_k8s:/src
+      - /home/devops/thamizh/Gitleaks/reports:/reports
+    entrypoint: ""
+    command: >
+      gitleaks git /src
+      --report-path=/reports/gitleaks_report.json
+      --report-format=json
+      --verbose
+
