@@ -1,0 +1,36 @@
+services:
+  opensearch-node1:
+    image: opensearchproject/opensearch:2.15.0
+    container_name: opensearch-node1
+    environment:
+      - cluster.name=opensearch-cluster
+      - node.name=opensearch-node1
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m
+      - OPENSEARCH_INITIAL_ADMIN_PASSWORD=KmewkmROEVJB121@$%!sjdnvk
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ./opensearch-data:/usr/share/opensearch/data
+    ports:
+      - "9200:9200"   # REST API (HTTPS with demo certs)
+      - "9600:9600"   # Performance Analyzer
+
+  opensearch-dashboards:
+    image: opensearchproject/opensearch-dashboards:2.15.0
+    container_name: opensearch-dashboards
+    ports:
+      - "5601:5601"
+    environment:
+      - OPENSEARCH_HOSTS=https://localhost:9200
+      - OPENSEARCH_USERNAME=admin
+      - OPENSEARCH_PASSWORD=KmewkmROEVJB121@$%!sjdnvk
+    depends_on:
+      - opensearch-node1
+
+volumes:
+  opensearch-data:
+
